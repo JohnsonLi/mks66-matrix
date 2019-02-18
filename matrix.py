@@ -32,8 +32,21 @@ def ident( matrix ):
 #multiply m1 by m2, modifying m2 to be the product
 #m1 * m2 -> m2
 def matrix_mult( m1, m2 ):
-    pass
+    res = []
+    for row in m1:
+        new = []
+        for i in range(len(m2[0])):
+            sum = 0
+            for j in range(len(row)):
+                sum += row[j] * m2[j][i]
+            new.append(sum)
+        res.append(new)
+    
+    for i in range(len(m2)):
+        for j in range(len(m2[0])):
+            m2[i][j] = res[i][j]
 
+    # print(m2)
 
 
 
@@ -45,8 +58,13 @@ def new_matrix(rows = 4, cols = 4):
             m[c].append( 0 )
     return m
 
-print('------------------')
-arr = new_matrix()
-ident(arr)
-print_matrix(arr)
-print('------------------')
+# print('------------------')
+# arr = new_matrix()
+# ident(arr)
+# print_matrix(arr)
+# print('------------------')
+
+m2 = [[1, 4], [2, 5], [3, 6], [1, 1]]
+m1 = [[1, 4, 7, 10], [2, 5, 8, 11], [3, 6, 9, 12], [1, 1, 1, 1]]
+matrix_mult(m1, m2)
+
