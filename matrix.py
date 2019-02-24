@@ -13,13 +13,13 @@ import math
 #the template in the top comment
 def print_matrix( matrix ):
     output = ''
-    for i in range(len(matrix)):
-        for j in range(len(matrix[i])):
+    for i in range(4):
+        for j in range(len(matrix)):
             output += str(matrix[j][i]) + ' '
-        output += '\n' if i != len(matrix) - 1 else ''
+        output += '\n' if i != 3 else ''
     print(output)
 
-#turn the paramter matrix into an identity matrix
+#turn the parameter matrix into an identity matrix
 #you may assume matrix is square
 def ident( matrix ):
     for i in range(len(matrix)):
@@ -57,14 +57,3 @@ def new_matrix(rows = 4, cols = 4):
         for r in range( rows ):
             m[c].append( 0 )
     return m
-
-# print('------------------')
-# arr = new_matrix()
-# ident(arr)
-# print_matrix(arr)
-# print('------------------')
-
-m2 = [[1, 4], [2, 5], [3, 6], [1, 1]]
-m1 = [[1, 4, 7, 10], [2, 5, 8, 11], [3, 6, 9, 12], [1, 1, 1, 1]]
-matrix_mult(m1, m2)
-
